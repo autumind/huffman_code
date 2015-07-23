@@ -16,8 +16,10 @@ class Node(object):
         '''
         Constructor
         '''
-        self.__character = character
-        self.__count     = count
+        self.__character  = character
+        self.__count      = count
+        self.__leftChild  = leftChild
+        self.__rightChild = rightChild
 
     def getCharacter(self):
         return self.__character
