@@ -27,6 +27,18 @@ class Node(object):
     def getCount(self):
         return self.__count
 
+    def getLeftChild(self):
+        return self.__leftChild
+
+    def getRightChild(self):
+        return self.__rightChild
+
+    def setLeftChild(self, leftChild):
+        self.__leftChild = leftChild
+
+    def setRightChild(self, rightChild):
+        self.__rightChild = rightChild
+
     def plus(self, other):
         return Node(None, self.getCount() + other.getCount())
 
@@ -37,3 +49,15 @@ class Node(object):
             return -1
         else:
             return 0
+
+    def hasRealLeft(self):
+        if (self.getLeftChild().getCharacter() == None):
+            return False
+        else:
+            return True
+
+    def hasRealRight(self):
+        if (self.getRightChild().getCharacter() == None):
+            return False
+        else:
+            return True
