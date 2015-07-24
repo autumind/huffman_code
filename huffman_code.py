@@ -16,6 +16,16 @@ if __name__ == '__main__':
     ''' Initialize PriorityQueue '''
     nodeList = []
     for ch, cnt in char_list:
-        # print(ch, cnt)
+        #print(ch, cnt)
         node = Node(ch, cnt)
         nodeList.append(node)
+
+    '''
+    Get a Huffman tree.
+    '''
+    huffmanTree = Utils.generateHuffmanTree(nodeList)
+
+    '''
+    Get Huffman codes.
+    '''
+    huffmanCode = Utils.generateHuffmanCodes(huffmanTree)
