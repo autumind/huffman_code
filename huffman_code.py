@@ -29,3 +29,9 @@ if __name__ == '__main__':
     Get Huffman codes.
     '''
     huffmanCode = Utils.generateHuffmanCodes(huffmanTree)
+
+    '''
+    Print final Huffman codes sequence
+    '''
+    for ch, code in huffmancode :
+        print(ch, code)

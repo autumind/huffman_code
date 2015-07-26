@@ -45,4 +45,13 @@ def generateHuffmanCodes(huffmanTree):
     '''
     Generate Huffman codes from a Huffman Tree.
     '''
-    pass
+    huffmanCodes = dict[]
+    leftTree = huffmanTree.getLeftChild()
+    rightTree = huffmanTree.getRightChild()
+    if leftTree.hasRealLeft():
+        pass
+    elif leftTree.hasRealRight():
+        pass
+    else
+        return huffmanCodes
+        
