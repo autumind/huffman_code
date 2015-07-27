@@ -50,14 +50,8 @@ class Node(object):
         else:
             return 0
 
-    def hasRealLeft(self):
-        if (self.getLeftChild().getCharacter() == None):
-            return False
-        else:
+    def isLeaf(self):
+        if (self.getLeftChild().getCharacter() == None) and (self.getRightChild().getCharacter() == None):
             return True
-
-    def hasRealRight(self):
-        if (self.getRightChild().getCharacter() == None):
-            return False
         else:
-            return True
+            return False
