@@ -6,6 +6,7 @@ Created on Jul 22, 2015
 @author: shenzb
 '''
 from Node import Node
+from compiler.ast import Dict
 
 def stringToPriorityQueue(text):
     '''
@@ -41,17 +42,34 @@ def generateHuffmanTree(nodeList):
         return nodeList[0]
     return generateHuffmanTree(nodeList);
 
-def generateHuffmanCodes(huffmanTree):
+def generateHuffmanCodes(huffmanTree, **huffmanCodes):
     '''
     Generate Huffman codes from a Huffman Tree.
     '''
-    huffmanCodes = dict[]
-    leftTree = huffmanTree.getLeftChild()
-    rightTree = huffmanTree.getRightChild()
-    if leftTree.hasRealLeft():
-        pass
-    elif leftTree.hasRealRight():
-        pass
-    else
+    if huffmanTree.isLeaf():
+        huffmanCodes[huffmanTree.getCharacter()] = huffmanCodes[huffmanTree]
         return huffmanCodes
-        
+    huffmanCodes[huffmanTree.getLeftChild()] = huffmanCodes[huffmanTree] + "0"
+    generateHuffmanCodes(huffmanTree.getLeftChild(), huffmanCodes)
+    huffmanCodes[huffmanTree.getRightChild()] = huffmanCodes[huffmanTree] + "1"
+    generateHuffmanCodes(huffmanTree.getLeftChild(), huffmanCodes)
+#     codeFlg = False
+#     if huffmanTree.getCharacter() != None:
+#         codeFlg = True
+# 
+#     leftTree = huffmanTree.getLeftChild()
+#     rightTree = huffmanTree.getRightChild()
+# 
+#     if leftTree.hasRealLeft() or leftTree.hasRealRight():
+#         if codeFlg:
+#             huffmanCodes[huffmanTree.getCharacter()] = ("").join(seq) + "0"
+#         return generateHuffmanCodes(leftTree, seq.append("0"), huffmanCodes)
+#     else:
+#         return huffmanCodes
+# 
+#     if rightTree.hasRealLeft() or rightTree.hasRealRight():
+#         if codeFlg:
+#             huffmanCodes[huffmanTree.getCharacter()] = ("").join(seq) + "1"
+#         return generateHuffmanCodes(rightTree, seq.append("1"), huffmanCodes)
+#     else:
+#         return huffmanCodes
