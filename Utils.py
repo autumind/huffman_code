@@ -6,7 +6,6 @@ Created on Jul 22, 2015
 @author: shenzb
 '''
 from Node import Node
-from compiler.ast import Dict
 
 def stringToPriorityQueue(text):
     '''
@@ -42,17 +41,17 @@ def generateHuffmanTree(nodeList):
         return nodeList[0]
     return generateHuffmanTree(nodeList);
 
-def generateHuffmanCodes(huffmanTree, **huffmanCodes):
+def generateHuffmanCodes(huffmanTree, curCode, huffmanCode):
     '''
     Generate Huffman codes from a Huffman Tree.
     '''
     if huffmanTree.isLeaf():
-        huffmanCodes[huffmanTree.getCharacter()] = huffmanCodes[huffmanTree]
-        return huffmanCodes
-    huffmanCodes[huffmanTree.getLeftChild()] = huffmanCodes[huffmanTree] + "0"
-    generateHuffmanCodes(huffmanTree.getLeftChild(), huffmanCodes)
-    huffmanCodes[huffmanTree.getRightChild()] = huffmanCodes[huffmanTree] + "1"
-    generateHuffmanCodes(huffmanTree.getLeftChild(), huffmanCodes)
+        huffmanCode[huffmanTree.getCharacter()] = curCode
+        return;
+    lCode = curCode + "1"
+    rCode = curCode + "0"
+    generateHuffmanCodes(huffmanTree.getLeftChild(), lCode, huffmanCode)
+    generateHuffmanCodes(huffmanTree.getRightChild(), rCode, huffmanCode)
 #     codeFlg = False
 #     if huffmanTree.getCharacter() != None:
 #         codeFlg = True
