@@ -28,10 +28,12 @@ if __name__ == '__main__':
     '''
     Get Huffman codes.
     '''
-    huffmanCode = Utils.generateHuffmanCodes(huffmanTree)
+    huffmanCode = dict()
+    Utils.generateHuffmanCodes(huffmanTree, "", huffmanCode)
 
     '''
     Print Huffman codes.
     '''
-    for ch in char_list:
+    for ch, cnt in char_list:
+        #pass
         print(ch, huffmanCode[ch])
