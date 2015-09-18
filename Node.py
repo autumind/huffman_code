@@ -51,7 +51,7 @@ class Node(object):
             return 0
 
     def isLeaf(self):
-        if (self.getLeftChild().getCharacter() == None) and (self.getRightChild().getCharacter() == None):
+        if (self.getLeftChild() == None) and (self.getRightChild() == None):
             return True
         else:
             return False
